@@ -1,0 +1,29 @@
+{
+  "name": "@me5on/fn",
+  "version": "0.0.1",
+  "description": "FN",
+  "repository": "https://github.com/me5on/fn",
+  "author": "azder <azhder@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": "./src/index.js",
+  "scripts": {
+    "jst:once": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "jst:wtch": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "esl:once": "eslint ./",
+    "esl:wtch": "nodemon --exec eslint ./",
+    "esl:ofix": "eslint --fix ./",
+    "esl:wfix": "nodemon --exec eslint --fix ./",
+    "test": "npm run jst:once",
+    "start": "npm run jst:wtch"
+  },
+  "devDependencies": {
+    "@azhder/eslint-config-azder": "^0.0.11",
+    "@jest/globals": "^26.6.2",
+    "eslint": "^7.25.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7"
+  }
+}
