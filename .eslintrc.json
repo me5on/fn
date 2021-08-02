@@ -3,10 +3,22 @@
     "sourceType": "module"
   },
   "extends": [
-    "@azhder/eslint-config-azder"
+    "@sloy/eslint-config-recommended"
   ],
   "globals": {
     "Symbol": false,
     "Promise": false
+  },
+  "rules": {
+    "no-shadow": [
+      "error",
+      {
+        "builtinGlobals": true,
+        "allow": [
+          "name"
+        ]
+      }
+    ]
+
   }
 }

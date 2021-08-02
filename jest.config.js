@@ -15,6 +15,7 @@ export default ({
         'text-summary',
     ],
 
+    collectCoverageFrom: ['src/**/*.js'],
 
     transform: {},
 
