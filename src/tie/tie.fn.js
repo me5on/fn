@@ -1,18 +1,4 @@
-const withValue = $ => {
-    const descriptor = Object.create(null);
-    descriptor.value = $;
-    return descriptor;
-};
-
-
-const setProp = (key, val, fn) => {
-    try {
-        Object.defineProperty(fn, key, withValue(val));
-    } catch (e) {
-        // nothing to do here, not the end of the world
-    }
-    return fn;
-};
+import setProp from '../set-prop.util.js';
 
 
 const setProps = (first, rest, fn) => {
@@ -27,7 +13,6 @@ const setProps = (first, rest, fn) => {
 
     return fn;
 };
-
 
 const tie = (
 

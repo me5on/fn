@@ -1,6 +1,6 @@
 {
   "name": "@me5on/fn",
-  "version": "0.0.2+9",
+  "version": "0.0.2+10",
   "description": "FN",
   "repository": "https://github.com/me5on/fn",
   "author": "azder <azhder@gmail.com>",
@@ -13,7 +13,7 @@
     "esl:once": "eslint --ignore-pattern '/tmp/*' ./",
     "esl:wtch": "nodemon --exec \"eslint --ignore-pattern '/tmp/*'\" ./",
     "esl:ofix": "eslint --fix --ignore-pattern '/tmp/*' ./",
-    "esl:wfix": "nodemon --exec eslint --fix ./",
+    "esl:wfix": "nodemon --exec \"eslint --ignore-pattern '/tmp/*' --fix\" ./",
     "jst:ocvr": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
     "jst:wcvr": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest --watch-all --coverage",
     "jst:once": "NODE_OPTIONS=--experimental-vm-modules jest",

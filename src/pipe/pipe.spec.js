@@ -24,6 +24,7 @@ describe('FN.pipe', () => {
     it.each([
         [22, [plus10, times2], 1],
         [12, [times2, plus10], 1],
+        [33, [$ => 0 + $, $ => 1 * $], 33],
     ])(
         'returns %p when composed %p are invoked with %p',
         (expected, fns, arg) => expect(pipe(...fns)(arg)).toEqual(expected),

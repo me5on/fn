@@ -1,21 +1,20 @@
-const call = ($, fn) => fn($);
+import call from '../call.util.js';
+import nameOf from '../name-of.util.js';
+import setProp from '../set-prop.util.js';
 
 
-const pipe = (
+const pipe = setProp(
+    'length',
 
-    (...$$) => $ => $$.reduce(call, $)
+    // variadic function will get 0 as length by default
+    Infinity,
 
+    (...$$) => setProp(
+        'name',
+        `pipe(${$$.map(nameOf)})`,
+        $ => $$.reduce(call, $),
+    ),
 );
-
-
-const withValue = $ => {
-    const descriptor = Object.create(null);
-    descriptor.value = $;
-    return descriptor;
-};
-
-// variadic functions get 0 as length by default
-Object.defineProperty(pipe, 'length', withValue(Infinity));
 
 
 export default pipe;

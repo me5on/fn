@@ -51,6 +51,11 @@ const plusBeforeTimes = pipe(plus10, times2);       // ($ + 10) * 2
 const plusAfterTimes = compose(plus10, times2);     // ($ * 2) + 10
 
 console.log(
+  plusBeforeTimes.name,                             // pipe(plus10,times2)
+  plusAfterTimes.name,                              // compose(plus10,times2)
+);
+
+console.log(
   plusBeforeTimes(1),                               // 22
   plusAfterTimes(1),                                // 12
 );

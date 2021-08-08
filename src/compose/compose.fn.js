@@ -1,22 +1,20 @@
-const call = ($, fn) => fn($);
+import call from '../call.util.js';
+import nameOf from '../name-of.util.js';
+import setProp from '../set-prop.util.js';
 
 
-const compose = (
+const compose = setProp(
+    'length',
 
-    (...$$) => $ => $$.reduceRight(call, $)
+    // variadic function will get 0 as length by default
+    Infinity,
 
+    (...$$) => setProp(
+        'name',
+        `compose(${$$.map(nameOf)})`,
+        $ => $$.reduceRight(call, $),
+    ),
 );
-
-
-const withValue = $ => {
-    const descriptor = Object.create(null);
-    descriptor.value = $;
-    return descriptor;
-};
-
-
-// variadic functions get 0 as length by default
-Object.defineProperty(compose, 'length', withValue(Infinity));
 
 
 export default compose;
