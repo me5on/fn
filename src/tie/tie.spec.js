@@ -1,4 +1,4 @@
-/* eslint-disable no-magic-numbers */
+/* eslint-disable no-magic-numbers,max-lines-per-function */
 
 
 import {describe, expect, it} from '@jest/globals';
@@ -24,6 +24,7 @@ describe('FN.tie', () => {
         () => void (1),
         class C {
         },
+        // eslint-disable-next-line no-empty-function
         function f() {
         },
     ])(

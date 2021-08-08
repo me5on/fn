@@ -1,3 +1,5 @@
+/* eslint-disable new-cap */
+
 import {describe, expect, it} from '@jest/globals';
 import FN from './index.js';
 
@@ -16,7 +18,7 @@ describe('library FN', () => {
         () => void expect(Object.keys(FN).sort()).toEqual(names),
     );
 
-    describe.each(names)('', (name) => { // eslint-disable-line no-shadow
+    describe.each(names)('', name => { // eslint-disable-line no-shadow
 
         describe(`FN.${name}`, () => {
 
