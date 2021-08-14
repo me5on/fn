@@ -1,6 +1,6 @@
 const nameOf = (
 
-    $ => $?.name || String($)
+    $ => $?.name || `(${String($)})`
 
 );
 

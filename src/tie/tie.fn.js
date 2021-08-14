@@ -1,10 +1,11 @@
+import nameOf from '../name-of.util.js';
 import setProp from '../set-prop.util.js';
 
 
 const setProps = (first, rest, fn) => {
 
     const args = rest.map(arg => String(arg));
-    const name = `${first.name}(${args})`;
+    const name = `${nameOf(first)}(${args})`;
     const source = first.toString();
 
     setProp('name', name, fn);

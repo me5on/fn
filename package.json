@@ -1,6 +1,6 @@
 {
   "name": "@me5on/fn",
-  "version": "0.0.3+11",
+  "version": "0.0.3+12",
   "description": "FN",
   "repository": "https://github.com/me5on/fn",
   "author": "azder <azhder@gmail.com>",
@@ -11,14 +11,14 @@
   "exports": "./src/index.js",
   "scripts": {
     "esl:once": "eslint --ignore-pattern '/tmp/*' ./",
-    "esl:wtch": "nodemon --exec \"eslint --ignore-pattern '/tmp/*'\" ./",
+    "esl:wtch": "nodemon --exec eslint --ignore-path .gitignore ./",
     "esl:ofix": "eslint --fix --ignore-pattern '/tmp/*' ./",
-    "esl:wfix": "nodemon --exec \"eslint --ignore-pattern '/tmp/*' --fix\" ./",
+    "esl:wfix": "nodemon --exec eslint --ignore-path .gitignore --fix ./",
     "jst:ocvr": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
     "jst:wcvr": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest --watch-all --coverage",
     "jst:once": "NODE_OPTIONS=--experimental-vm-modules jest",
     "jst:wtch": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest --watch",
-    "srv:covr": "npx serve coverage/lcov-report/",
+    "srv:covr": "npx http-server ./coverage/lcov-report/ -c-1 -p 0 ",
     "prepare": "husky install",
     "test": "npm run jst:once",
     "start": "npm run jst:wtch"
@@ -28,9 +28,9 @@
     "@me5on/dv": "^0.0.2",
     "@sloy/eslint-config-recommended": "^0.1.1",
     "eslint": "^7.25.0",
+    "http-server": "^13.0.0",
     "husky": "^7.0.0",
     "jest": "^27.0.6",
-    "nodemon": "^2.0.7",
-    "serve": "^12.0.0"
+    "nodemon": "^2.0.7"
   }
 }
