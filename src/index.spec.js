@@ -11,7 +11,10 @@ describe('library FN', () => {
         () => void expect(FN()).toBe(FN),
     );
 
-    const names = ['compose', 'ident', 'k', 'noop', 'pipe', 'tie'].sort();
+    const names = [
+        'compose', 'ident', 'k', 'noop', 'pipe', 'tie',
+        'named$', 'variadic$',
+    ].sort();
 
     it(
         'has no extra properties',

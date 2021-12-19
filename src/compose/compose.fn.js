@@ -1,16 +1,11 @@
-import call from '../call.util.js';
-import nameOf from '../name-of.util.js';
-import setProp from '../set-prop.util.js';
+import named$ from '../named/named$.fn.js';
+import call from '../util/call.util.js';
+import nameOf from '../util/name-of.util.js';
+import variadic$ from '../variadic/variadic$.fn.js';
 
 
-const compose = setProp(
-    'length',
-
-    // variadic function will get 0 as length by default
-    Infinity,
-
-    (...$$) => setProp(
-        'name',
+const compose = variadic$(
+    (...$$) => named$(
         `compose(${$$.map(nameOf)})`,
         $ => $$.reduceRight(call, $),
     ),

@@ -1,9 +1,9 @@
-import setProp from '../set-prop.util.js';
+import named$ from '../named/named$.fn.js';
 
 
 const K = (
 
-    $ => setProp('name', `K(${String($)})`, () => $)
+    $ => named$(`K(${String($)})`, () => $)
 
 );
 

@@ -1,5 +1,5 @@
-import nameOf from '../name-of.util.js';
-import setProp from '../set-prop.util.js';
+import nameOf from '../util/name-of.util.js';
+import setProp from '../util/set-prop.util.js';
 
 
 const setProps = (first, rest, fn) => {
