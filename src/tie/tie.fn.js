@@ -4,7 +4,7 @@ import setProp from '../util/set-prop.util.js';
 
 const setProps = (first, rest, fn) => {
 
-    const args = rest.map(arg => String(arg));
+    const args = rest.map(arg => ('function' === typeof arg ? nameOf : String)(arg));
     const name = `${nameOf(first)}(${args})`;
     const source = first.toString();
 
@@ -14,6 +14,7 @@ const setProps = (first, rest, fn) => {
 
     return fn;
 };
+
 
 const tie = (
 

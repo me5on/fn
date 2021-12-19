@@ -44,6 +44,10 @@ describe('FN.tie', () => {
         ['concat(double)(1,2,3,4)', double, [1, 2, 3, 4]],
         ['parens(Symbol(s),null,undefined)', parens, [Symbol('s'), null, void (1)]],
         ['($ => $)(0)', $ => $, [0]],
+        ['($ => $)(named,0)', $ => $, [function named($) {
+            return $;
+        }, 0]],
+        ['($ => $)(($ => 2 * $),0)', $ => $, [$ => 2 * $, 0]],
     ])(
         'updates %p name when tied with %p',
         (expected, fn, args) => expect(tie(fn, ...args).name).toEqual(expected),
