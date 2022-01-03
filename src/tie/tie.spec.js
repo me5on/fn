@@ -48,8 +48,17 @@ describe('FN.tie', () => {
             return $;
         }, 0]],
         ['($ => $)(($ => 2 * $),0)', $ => $, [$ => 2 * $, 0]],
+        ['($ => $)(null,undefined,Symbol(2))', $ => $, [null, void (1), Symbol(2)]],
     ])(
         'updates %p name when tied with %p',
+        (expected, fn, args) => expect(tie(fn, ...args).name).toEqual(expected),
+    );
+
+    it.each([
+        ['($ => $)(Cannot-convert-object-to-primitive-value)', $ => $, [{toString: null}]],
+        ['($ => $)(Cannot-convert-a-Symbol-value-to-a-string)', $ => $, [{toString: () => Symbol('')}]],
+    ])(
+        'recovers as %p when %p is called on erroneous argument %p',
         (expected, fn, args) => expect(tie(fn, ...args).name).toEqual(expected),
     );
 
@@ -61,5 +70,6 @@ describe('FN.tie', () => {
         'makes %p return same .toString() result as %p',
         (fn, args) => expect(tie(fn, ...args).toString()).toEqual(fn.toString()),
     );
+
 
 });
